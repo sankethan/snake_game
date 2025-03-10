@@ -14,11 +14,13 @@ Snake::~Snake()
 }
 void Snake::draw()
 {
-    // for(int i=0;i<N;i++)
-    DrawTexture(sprite, sprite_pos.posX, sprite_pos.posY, WHITE);
+    for(int i=0;i<N;i++)
+        DrawTexture(sprite, sprite_pos[i].posX, sprite_pos[i].posY, WHITE);
 }
 void Snake::go_left(int speed)
 {
+    // struct decision_point neww = {{sprite_pos[0].posX,sprite_pos[0].posY},LEFT};
+    decision_points.emplace_back(sprite_pos[0].posX,sprite_pos[0].posY,LEFT);
     if (*(snake_speed.speed->speedX) == 0)
     {
         sprite_pos.posY = *snake_speed.speed->speedY > 0 ? ((floor((sprite_pos.posY + (sprite.height / 2)) / TILE_SIZE) * TILE_SIZE) + 5) : (floor((sprite_pos.posY) / TILE_SIZE) * TILE_SIZE) + 5;

@@ -21,7 +21,9 @@ struct object_speed{
 
 enum direction  {LEFT,UP,RIGHT,DOWN};
 struct decision_point{
-    struct Vector2 point;
+    // float x;
+    // float y;
+    struct Vector2 pos;
     direction dir;
 };
 
@@ -38,14 +40,12 @@ class Snake{
 
     public:
 
-        struct object_speed snake_speed = {&horiz_speed};
-        struct position sprite_pos      = {-1.0f*sprite.width,0+5};
 
         // struct object_speed snake_speed[MAX_N];
         // struct position sprite_pos[MAX_N];
 
-        // std::vector<struct object_speed>  snake_speed;
-        // std::vector<struct position>  sprite_pos;
+        std::vector<struct object_speed>  snake_speed;
+        std::vector<struct position>  sprite_pos;
 
 
         Texture2D sprite;
